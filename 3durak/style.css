@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Quicksand', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #222;
+    min-height: 100vh;
+}
+body.dark {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #e0eafc;
+}
+header {
+    background: rgba(34,34,34,0.92);
+    color: #fff;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    position: relative;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    overflow: hidden;
+}
+body.dark header {
+    background: rgba(20,20,20,0.97);
+    color: #fff;
+}
+header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 180px;
+    background: radial-gradient(circle, #7ee8fa 0%, #eec0c6 100%);
+    opacity: 0.18;
+    z-index: 0;
+}
+header * { position: relative; z-index: 1; }
+.logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.logo-bg {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 60% 40%, #7ee8fa 0%, #eec0c6 100%);
+    filter: blur(8px) opacity(0.7);
+    z-index: 0;
+    transition: background 0.4s;
+}
+body.dark .logo-bg {
+    background: radial-gradient(circle at 60% 40%, #ffe066 0%, #7ee8fa 100%);
+}
+.logo {
+    position: relative;
+    z-index: 1;
+}
+h1 {
+    font-family: 'Quicksand', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0.2rem 0 0.5rem 0;
+    background: linear-gradient(90deg, #7ee8fa 0%, #eec0c6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 2px 12px rgba(126,232,250,0.13);
+    transition: background 0.4s;
+}
+body.dark h1 {
+    background: linear-gradient(90deg, #ffe066 0%, #7ee8fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 2px 16px rgba(255,224,102,0.10);
+}
+header p {
+    font-size: 1.1rem;
+    color: #e0eafc;
+    margin-bottom: 0;
+}
+body.dark header p {
+    color: #b2becd;
+}
+main {
+    padding: 2.5rem 1rem 1rem 1rem;
+    max-width: 1000px;
+    margin: auto;
+}
+#urunler h2 {
+    text-align: center;
+    margin-bottom: 2.2rem;
+    font-size: 1.5rem;
+    color: #2d3a4b;
+    letter-spacing: 0.5px;
+}
+body.dark #urunler h2,
+body.dark .urun-karti h3 {
+    color: #e0eafc;
+}
+.urunler-listesi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.2rem;
+    justify-content: center;
+}
+.urun-karti {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 1.2rem 1rem 1.5rem 1rem;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+    position: relative;
+    overflow: hidden;
+}
+body.dark .urun-karti {
+    background: #232526;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+.urun-karti:hover {
+    transform: translateY(-8px) scale(1.04) rotate(-1deg);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+.urun-karti img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 2px 12px rgba(126,232,250,0.08);
+    background: #e0eafc;
+}
+body.dark .urun-karti img {
+    background: #232526;
+}
+.urun-karti h3 {
+    margin: 0.5rem 0 0.3rem 0;
+    font-size: 1.13rem;
+    font-weight: 600;
+    color: #2d3a4b;
+}
+.urun-karti p {
+    font-size: 0.98rem;
+    color: #555;
+    margin-bottom: 1.1rem;
+    text-align: center;
+}
+body.dark .urun-karti p {
+    color: #b2becd;
+}
+.dolap-link {
+    background: linear-gradient(90deg, #ff5a5f 0%, #ffb199 100%);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.55rem 1.3rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(255,90,95,0.10);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+body.dark .dolap-link {
+    background: linear-gradient(90deg, #7ee8fa 0%, #232526 100%);
+    color: #232526;
+    box-shadow: 0 2px 8px rgba(126,232,250,0.10);
+}
+.dolap-link::before {
+    content: '\1F6D2'; /* alışveriş arabası ikonu */
+    font-size: 1.1em;
+    margin-right: 0.2em;
+}
+.dolap-link:hover {
+    background: linear-gradient(90deg, #e0484d 0%, #ffb199 100%);
+    box-shadow: 0 4px 16px rgba(255,90,95,0.18);
+    transform: scale(1.05);
+}
+body.dark .dolap-link:hover {
+    background: linear-gradient(90deg, #eec0c6 0%, #232526 100%);
+    color: #232526;
+}
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    background: rgba(34,34,34,0.92);
+    color: #fff;
+    margin-top: 2.5rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+}
+body.dark footer {
+    background: rgba(20,20,20,0.97);
+    color: #e0eafc;
+}
+@media (max-width: 700px) {
+    .urunler-listesi {
+        flex-direction: column;
+        gap: 1.3rem;
+    }
+    .urun-karti {
+        width: 100%;
+    }
+    main {
+        padding: 1.2rem 0.3rem;
+    }
+}
+#theme-toggle {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.2s;
+    z-index: 2;
+}
+body.dark #theme-toggle {
+    color: #ffe066;
+} 
