@@ -259,37 +259,79 @@
       // Sayfalama sistemini başlat
       document.addEventListener('DOMContentLoaded', () => {
         new SayfalamaSistemi();
+      });
+
+      // Slider sistemi - GitHub Pages uyumlu
+      class SliderSistemi {
+        constructor() {
+          this.slider = null;
+          this.slides = null;
+          this.dots = null;
+          this.prevBtn = null;
+          this.nextBtn = null;
+          
+          this.currentSlide = 0;
+          this.slideCount = 0;
+          this.autoPlayInterval = null;
+          this.isInitialized = false;
+          
+          this.init();
+        }
         
-        // Slider sistemi
-        class SliderSistemi {
-          constructor() {
+        init() {
+          // DOM elementlerinin yüklenmesini bekle
+          this.waitForElements();
+        }
+        
+        waitForElements() {
+          const checkElements = () => {
             this.slider = document.getElementById('slider');
             this.slides = document.querySelectorAll('.slide');
             this.dots = document.querySelectorAll('.dot');
             this.prevBtn = document.getElementById('prev-btn');
             this.nextBtn = document.getElementById('next-btn');
             
-            this.currentSlide = 0;
-            this.slideCount = this.slides.length;
-            this.autoPlayInterval = null;
-            
-            this.init();
-          }
+            if (this.slider && this.slides.length > 0 && this.dots.length > 0 && this.prevBtn && this.nextBtn) {
+              this.slideCount = this.slides.length;
+              this.setupSlider();
+            } else {
+              // Elementler henüz yüklenmemişse tekrar dene
+              setTimeout(checkElements, 100);
+            }
+          };
           
-          init() {
-            this.eventListenerEkle();
+          checkElements();
+        }
+        
+        setupSlider() {
+          if (this.isInitialized) return;
+          
+          this.isInitialized = true;
+          this.eventListenerEkle();
+          this.slideGoster(0);
+          
+          // Kısa bir gecikme ile otomatik oynatmayı başlat
+          setTimeout(() => {
             this.autoPlayBaslat();
-            this.slideGoster(0);
+          }, 1000);
+        }
+        
+        eventListenerEkle() {
+          if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.oncekiSlide());
           }
           
-          eventListenerEkle() {
-            this.prevBtn.addEventListener('click', () => this.oncekiSlide());
+          if (this.nextBtn) {
             this.nextBtn.addEventListener('click', () => this.sonrakiSlide());
-            
+          }
+          
+          if (this.dots) {
             this.dots.forEach((dot, index) => {
               dot.addEventListener('click', () => this.slideGoster(index));
             });
-            
+          }
+          
+          if (this.slider) {
             // Mouse hover durumunda otomatik oynatmayı durdur
             this.slider.addEventListener('mouseenter', () => this.autoPlayDurdur());
             this.slider.addEventListener('mouseleave', () => this.autoPlayBaslat());
@@ -301,73 +343,95 @@
             this.slider.addEventListener('touchstart', (e) => {
               startX = e.touches[0].clientX;
               this.autoPlayDurdur();
-            });
+            }, { passive: true });
             
             this.slider.addEventListener('touchend', (e) => {
               endX = e.changedTouches[0].clientX;
               this.swipeKontrol(startX, endX);
               this.autoPlayBaslat();
-            });
+            }, { passive: true });
           }
+        }
+        
+        swipeKontrol(startX, endX) {
+          const swipeThreshold = 50;
+          const diff = startX - endX;
           
-          swipeKontrol(startX, endX) {
-            const swipeThreshold = 50;
-            const diff = startX - endX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-              if (diff > 0) {
-                this.sonrakiSlide();
-              } else {
-                this.oncekiSlide();
-              }
-            }
-          }
-          
-          slideGoster(index) {
-            this.currentSlide = index;
-            
-            // Slider pozisyonunu güncelle
-            this.slider.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Aktif slide'ı güncelle
-            this.slides.forEach(slide => slide.classList.remove('active'));
-            this.slides[index].classList.add('active');
-            
-            // Dots'ları güncelle
-            this.dots.forEach(dot => dot.classList.remove('active'));
-            this.dots[index].classList.add('active');
-            
-            // Buton durumlarını güncelle
-            this.prevBtn.style.opacity = index === 0 ? '0.5' : '1';
-            this.nextBtn.style.opacity = index === this.slideCount - 1 ? '0.5' : '1';
-          }
-          
-          oncekiSlide() {
-            const newIndex = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
-            this.slideGoster(newIndex);
-          }
-          
-          sonrakiSlide() {
-            const newIndex = this.currentSlide === this.slideCount - 1 ? 0 : this.currentSlide + 1;
-            this.slideGoster(newIndex);
-          }
-          
-          autoPlayBaslat() {
-            this.autoPlayInterval = setInterval(() => {
+          if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
               this.sonrakiSlide();
-            }, 5000); // 5 saniyede bir değişir
-          }
-          
-          autoPlayDurdur() {
-            if (this.autoPlayInterval) {
-              clearInterval(this.autoPlayInterval);
-              this.autoPlayInterval = null;
+            } else {
+              this.oncekiSlide();
             }
           }
         }
         
-        // Slider sistemini başlat
+        slideGoster(index) {
+          if (!this.slider || !this.slides || !this.dots) return;
+          
+          this.currentSlide = index;
+          
+          // Slider pozisyonunu güncelle
+          this.slider.style.transform = `translateX(-${index * 100}%)`;
+          
+          // Aktif slide'ı güncelle
+          this.slides.forEach(slide => slide.classList.remove('active'));
+          if (this.slides[index]) {
+            this.slides[index].classList.add('active');
+          }
+          
+          // Dots'ları güncelle
+          this.dots.forEach(dot => dot.classList.remove('active'));
+          if (this.dots[index]) {
+            this.dots[index].classList.add('active');
+          }
+          
+          // Buton durumlarını güncelle
+          if (this.prevBtn) {
+            this.prevBtn.style.opacity = index === 0 ? '0.5' : '1';
+          }
+          if (this.nextBtn) {
+            this.nextBtn.style.opacity = index === this.slideCount - 1 ? '0.5' : '1';
+          }
+        }
+        
+        oncekiSlide() {
+          const newIndex = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
+          this.slideGoster(newIndex);
+        }
+        
+        sonrakiSlide() {
+          const newIndex = this.currentSlide === this.slideCount - 1 ? 0 : this.currentSlide + 1;
+          this.slideGoster(newIndex);
+        }
+        
+        autoPlayBaslat() {
+          this.autoPlayDurdur();
+          this.autoPlayInterval = setInterval(() => {
+            this.sonrakiSlide();
+          }, 5000);
+        }
+        
+        autoPlayDurdur() {
+          if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+          }
+        }
+      }
+      
+      // Slider sistemini başlat - window.onload ile
+      window.addEventListener('load', () => {
         new SliderSistemi();
+      });
+      
+      // Ek güvenlik için DOMContentLoaded'da da dene
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          if (!window.sliderInstance) {
+            window.sliderInstance = new SliderSistemi();
+          }
+        }, 500);
       });
     </script>
 </body>

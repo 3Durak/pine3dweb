@@ -539,6 +539,8 @@ body.dark .slider-container {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     height: 400px;
+    transform: translateX(0);
+    will-change: transform;
 }
 
 .slide {
@@ -547,6 +549,12 @@ body.dark .slider-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slide.active {
+    opacity: 1;
 }
 
 .slide img {
