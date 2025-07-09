@@ -16,37 +16,140 @@
         <p>3D baskı ile üretilmiş özel ürünler</p>
         <button id="theme-toggle" aria-label="Tema Değiştir">🌙</button>
     </header>
+    
+    <!-- Slider Bölümü -->
+    <section class="slider-section">
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide active">
+                    <img src="img/urun1.jpg" alt="Pine3D Öne Çıkan Ürün 1">
+                    <div class="slide-content">
+                        <h2>Mercedes Kalemlik</h2>
+                        <p>3D baskı teknolojisi ile üretilmiş özel tasarım</p>
+                        <a href="https://link.dolap.com/s0nlyr" class="slide-btn" target="_blank">İncele</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/urun2.jpg" alt="Pine3D Öne Çıkan Ürün 2">
+                    <div class="slide-content">
+                        <h2>Mercedes Masa Saati</h2>
+                        <p>Zarif tasarım ve kaliteli malzeme</p>
+                        <a href="https://link.dolap.com/s0nlyr" class="slide-btn" target="_blank">İncele</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/urun3ch.png" alt="Pine3D Öne Çıkan Ürün 3">
+                    <div class="slide-content">
+                        <h2>SU-57 Maketi</h2>
+                        <p>Detaylı 3D baskı maket koleksiyonu</p>
+                        <a href="https://link.dolap.com/s0nlyr" class="slide-btn" target="_blank">İncele</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/urun5.jpg" alt="Pine3D Öne Çıkan Ürün 4">
+                    <div class="slide-content">
+                        <h2>Maket Uçak</h2>
+                        <p>Havacılık tutkunları için özel tasarım</p>
+                        <a href="https://link.dolap.com/c8qimn" class="slide-btn" target="_blank">İncele</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slider Kontrolleri -->
+            <button class="slider-btn prev" id="prev-btn" aria-label="Önceki">‹</button>
+            <button class="slider-btn next" id="next-btn" aria-label="Sonraki">›</button>
+            
+            <!-- Slider Noktaları -->
+            <div class="slider-dots" id="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+        </div>
+    </section>
+    
     <main>
         <section id="urunler">
             <h2>Ürünlerimiz</h2>
-            <div class="urunler-listesi">
+            <div class="urunler-listesi" id="urunler-container">
                 <!-- Ürün kartları buraya gelecek -->
-                <div class="urun-karti">
+                <div class="urun-karti" data-page="1">
                     <span class="rozet">YENİ</span>
                     <img src="img/urun1.jpg" alt="Pine3D Ürün 1">
                     <h3>Mercedes Kalemlik</h3>
                     <p>3D baskı ile üretilmiş Mercedes kalemlik</p>
-                    <a href="https://link.dolap.com/s0nlyr" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                    <a href="https://link.dolap.com/gqnn4" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
                 </div>
                 <!-- Yeni ürün eklemek için yukarıdaki div'i kopyalayıp çoğaltabilirsiniz. -->
 
-
-                <div class="urun-karti">
+                <div class="urun-karti" data-page="1">
                     <span class="rozet">YENİ</span>
                     <img src="img/urun2.jpg" alt="Pine3D Ürün 2">
                     <h3>Mercedes Masa Saati</h3>
                     <p>3D baskı ile üretilmiş Mercedes masa saati</p>
                     <a href="https://link.dolap.com/s0nlyr" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
                 </div>
+
+                <!-- Örnek ürünler - sayfa 1 -->
+                <div class="urun-karti" data-page="1">
+                    <span class="rozet">YENİ</span>
+                    <img src="img/urun4.jpg" alt="Pine3D Ürün 3">
+                    <h3>Garaj Anahtarlık</h3>
+                    <p>3D baskı ile üretilmiş garaj anahtarlığı</p>
+                    <a href="https://link.dolap.com/ud50z" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                </div>
+
+                <div class="urun-karti" data-page="1">
+                    <span class="rozet">YENİ</span>
+                    <img src="img/urun3ch.png" alt="Pine3D Ürün 4">
+                    <h3>SU-57</h3>
+                    <p>3D baskı ile üretilmiş SU-57 maketi</p>
+                    <a href="https://link.dolap.com/zoym1" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                </div>
+
+                <div class="urun-karti" data-page="1">
+                    <span class="rozet">YENİ</span>
+                    <img src="img/urun5.jpg" alt="Pine3D Ürün 5">
+                    <h3>Maket Uçak</h3>
+                    <p>3D baskı ile üretilmiş maket uçak</p>
+                    <a href="https://link.dolap.com/c8qimn" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                </div>
+
+                <div class="urun-karti" data-page="1">
+                    <span class="rozet">YENİ</span>
+                    <img src="img/urun6.jpg" alt="Pine3D Ürün 6">
+                    <h3>Formula 1 Masa Dekoru</h3>
+                    <p>3D baskı ile üretilmiş Formula 1 masa dekoru</p>
+                    <a href="https://link.dolap.com/qbydqo" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                </div>
+
+                <!-- Sayfa 2 ürünleri -->
+                <div class="urun-karti" data-page="2">
+                    <span class="rozet">YENİ</span>
+                    <img src="img/urun1.jpg" alt="Pine3D Ürün 7">
+                    <h3>Volkswagen Kalemlik</h3>
+                    <p>3D baskı ile üretilmiş Volkswagen kalemlik</p>
+                    <a href="https://link.dolap.com/s0nlyr" class="dolap-link" target="_blank">Dolap'ta Satın Al</a>
+                </div>
+            </div>
+
+            <!-- Sayfalama kontrolleri -->
+            <div class="sayfalama" id="sayfalama">
+                <button class="sayfa-btn" id="onceki-sayfa" disabled>← Önceki</button>
+                <div class="sayfa-numaralari" id="sayfa-numaralari">
+                    <!-- Sayfa numaraları JavaScript ile oluşturulacak -->
+                </div>
+                <button class="sayfa-btn" id="sonraki-sayfa">Sonraki →</button>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Pine3D</p>
+        <p>&copy; 2025 Pine3D</p>
         <div class="sosyal">
             <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
             <a href="https://wa.me/905555555555" target="_blank" aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.67 20.13l-1.2-4.28A9 9 0 1 0 4.28 20.13l4.28-1.2a9 9 0 0 0 13.11 1.2z"/><path d="M8.5 13.5l1.5 1.5 3-3"/></svg></a>
-            <a href="https://link.dolap.com/kzcssi" target="_blank" aria-label="Dolap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 3v4M8 3v4"/></svg></a>
+            <a href="https://link.dolap.com/fauyl3" target="_blank" aria-label="Dolap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 3v4M8 3v4"/></svg></a>
             <a href="mailto:info@pine3d.com" aria-label="E-posta"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg></a>
         </div>
     </footer>
@@ -67,6 +170,204 @@
           btn.textContent = '🌙';
           localStorage.setItem('theme', 'light');
         }
+      });
+
+      // Sayfalama sistemi
+      class SayfalamaSistemi {
+        constructor() {
+          this.mevcutSayfa = 1;
+          this.sayfaBasinaUrun = 6;
+          this.urunler = document.querySelectorAll('.urun-karti');
+          this.toplamSayfa = Math.ceil(this.urunler.length / this.sayfaBasinaUrun);
+          
+          this.oncekiBtn = document.getElementById('onceki-sayfa');
+          this.sonrakiBtn = document.getElementById('sonraki-sayfa');
+          this.sayfaNumaralariContainer = document.getElementById('sayfa-numaralari');
+          
+          this.init();
+        }
+        
+        init() {
+          this.sayfaNumaralariOlustur();
+          this.eventListenerEkle();
+          this.sayfaGoster(1);
+        }
+        
+        sayfaNumaralariOlustur() {
+          this.sayfaNumaralariContainer.innerHTML = '';
+          
+          for (let i = 1; i <= this.toplamSayfa; i++) {
+            const sayfaBtn = document.createElement('button');
+            sayfaBtn.className = 'sayfa-numarasi';
+            sayfaBtn.textContent = i;
+            sayfaBtn.addEventListener('click', () => this.sayfaGoster(i));
+            this.sayfaNumaralariContainer.appendChild(sayfaBtn);
+          }
+        }
+        
+        eventListenerEkle() {
+          this.oncekiBtn.addEventListener('click', () => {
+            if (this.mevcutSayfa > 1) {
+              this.sayfaGoster(this.mevcutSayfa - 1);
+            }
+          });
+          
+          this.sonrakiBtn.addEventListener('click', () => {
+            if (this.mevcutSayfa < this.toplamSayfa) {
+              this.sayfaGoster(this.mevcutSayfa + 1);
+            }
+          });
+        }
+        
+        sayfaGoster(sayfaNo) {
+          this.mevcutSayfa = sayfaNo;
+          
+          // Tüm ürünleri gizle
+          this.urunler.forEach(urun => {
+            urun.style.display = 'none';
+          });
+          
+          // Sayfa numaralarını güncelle
+          const sayfaNumaralari = this.sayfaNumaralariContainer.querySelectorAll('.sayfa-numarasi');
+          sayfaNumaralari.forEach((btn, index) => {
+            btn.classList.remove('aktif');
+            if (index + 1 === sayfaNo) {
+              btn.classList.add('aktif');
+            }
+          });
+          
+          // Mevcut sayfadaki ürünleri göster
+          const baslangicIndex = (sayfaNo - 1) * this.sayfaBasinaUrun;
+          const bitisIndex = baslangicIndex + this.sayfaBasinaUrun;
+          
+          for (let i = baslangicIndex; i < bitisIndex && i < this.urunler.length; i++) {
+            this.urunler[i].style.display = 'block';
+          }
+          
+          // Buton durumlarını güncelle
+          this.oncekiBtn.disabled = sayfaNo === 1;
+          this.sonrakiBtn.disabled = sayfaNo === this.toplamSayfa;
+          
+          // Sayfa başına kaydır
+          document.getElementById('urunler').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }
+      
+      // Sayfalama sistemini başlat
+      document.addEventListener('DOMContentLoaded', () => {
+        new SayfalamaSistemi();
+        
+        // Slider sistemi
+        class SliderSistemi {
+          constructor() {
+            this.slider = document.getElementById('slider');
+            this.slides = document.querySelectorAll('.slide');
+            this.dots = document.querySelectorAll('.dot');
+            this.prevBtn = document.getElementById('prev-btn');
+            this.nextBtn = document.getElementById('next-btn');
+            
+            this.currentSlide = 0;
+            this.slideCount = this.slides.length;
+            this.autoPlayInterval = null;
+            
+            this.init();
+          }
+          
+          init() {
+            this.eventListenerEkle();
+            this.autoPlayBaslat();
+            this.slideGoster(0);
+          }
+          
+          eventListenerEkle() {
+            this.prevBtn.addEventListener('click', () => this.oncekiSlide());
+            this.nextBtn.addEventListener('click', () => this.sonrakiSlide());
+            
+            this.dots.forEach((dot, index) => {
+              dot.addEventListener('click', () => this.slideGoster(index));
+            });
+            
+            // Mouse hover durumunda otomatik oynatmayı durdur
+            this.slider.addEventListener('mouseenter', () => this.autoPlayDurdur());
+            this.slider.addEventListener('mouseleave', () => this.autoPlayBaslat());
+            
+            // Touch events için
+            let startX = 0;
+            let endX = 0;
+            
+            this.slider.addEventListener('touchstart', (e) => {
+              startX = e.touches[0].clientX;
+              this.autoPlayDurdur();
+            });
+            
+            this.slider.addEventListener('touchend', (e) => {
+              endX = e.changedTouches[0].clientX;
+              this.swipeKontrol(startX, endX);
+              this.autoPlayBaslat();
+            });
+          }
+          
+          swipeKontrol(startX, endX) {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+              if (diff > 0) {
+                this.sonrakiSlide();
+              } else {
+                this.oncekiSlide();
+              }
+            }
+          }
+          
+          slideGoster(index) {
+            this.currentSlide = index;
+            
+            // Slider pozisyonunu güncelle
+            this.slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Aktif slide'ı güncelle
+            this.slides.forEach(slide => slide.classList.remove('active'));
+            this.slides[index].classList.add('active');
+            
+            // Dots'ları güncelle
+            this.dots.forEach(dot => dot.classList.remove('active'));
+            this.dots[index].classList.add('active');
+            
+            // Buton durumlarını güncelle
+            this.prevBtn.style.opacity = index === 0 ? '0.5' : '1';
+            this.nextBtn.style.opacity = index === this.slideCount - 1 ? '0.5' : '1';
+          }
+          
+          oncekiSlide() {
+            const newIndex = this.currentSlide === 0 ? this.slideCount - 1 : this.currentSlide - 1;
+            this.slideGoster(newIndex);
+          }
+          
+          sonrakiSlide() {
+            const newIndex = this.currentSlide === this.slideCount - 1 ? 0 : this.currentSlide + 1;
+            this.slideGoster(newIndex);
+          }
+          
+          autoPlayBaslat() {
+            this.autoPlayInterval = setInterval(() => {
+              this.sonrakiSlide();
+            }, 5000); // 5 saniyede bir değişir
+          }
+          
+          autoPlayDurdur() {
+            if (this.autoPlayInterval) {
+              clearInterval(this.autoPlayInterval);
+              this.autoPlayInterval = null;
+            }
+          }
+        }
+        
+        // Slider sistemini başlat
+        new SliderSistemi();
       });
     </script>
 </body>
